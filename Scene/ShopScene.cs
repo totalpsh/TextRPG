@@ -10,6 +10,7 @@ namespace TextRPG
     {
         private Shop shop;
         private List<Item> sellList;
+        private List<Item> ownedItems;
 
         public BuyScene BuySellScene { get; private set; }
 
@@ -22,6 +23,12 @@ namespace TextRPG
         {
             string choice;
             sellList = shop.GetShopItems();
+            ownedItems = gm.Player.Inventory.GetInvenItem;
+            for(int i = 0; i < ownedItems.Count; i++)
+            {
+                Console.WriteLine(ownedItems[i].Name);
+            }
+
             do
             {
                 Console.WriteLine();
@@ -33,8 +40,9 @@ namespace TextRPG
                 for (int i = 0; i < sellList.Count; i++)
                 {
                     //여기서 이게 보유중이 안뜸 수정해야할 문제
-                    if (gm.Player.Inventory.GetInvenItem.Contains(sellList[i]))
+                    if (gm.Player.Inventory.HasItemCheck(sellList[i]))
                     {
+
                         if (sellList[i].ItemType == EItemType.Weapon)
                         {
                             Console.WriteLine($"- {sellList[i].Name} | {sellList[i].Price} 문 | [보유 중]");

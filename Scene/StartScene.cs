@@ -52,8 +52,9 @@ namespace TextRPG
             {
                 Console.WriteLine();
                 Console.WriteLine("시작하시겠소?");
-                Console.WriteLine("1. 예");
-                Console.WriteLine("2. 아니오 (선택 시 종료되오.)");
+                Console.WriteLine("1. 새로 시작한다.");
+                Console.WriteLine("2. 저장된 게임을 불러온다. (미구현)");
+                Console.WriteLine("3. 아니오 (선택 시 종료되오.)");
                 Console.WriteLine();
                 Console.Write(">> ");
 
@@ -66,6 +67,7 @@ namespace TextRPG
                     Console.WriteLine();
                     Console.Write(">> ");
                     string inputName = Console.ReadLine();
+                    Console.WriteLine();
                     Console.WriteLine(inputName + "이라 맘에 드는군!");
                     gm.Player.Name = inputName;
 
@@ -73,7 +75,11 @@ namespace TextRPG
                 }
                 else if (choice == "2")
                 {
-                    // 종료
+                    // 저장된 데이터 불러오기
+                }
+                else if (choice == "3")
+                {
+                    Environment.Exit(0);
                 }
                 else
                 {
@@ -81,7 +87,7 @@ namespace TextRPG
                     Console.WriteLine("없는 선택이오. 다시 선택하시오.");
                 }
 
-            } while (choice != "1" && choice != "2");
+            } while (choice != "1" && choice != "2" && choice != "3");
 
             
         }

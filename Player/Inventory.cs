@@ -76,7 +76,7 @@ namespace TextRPG
 
         public void AddItem(Item buyItem)
         {
-             invenItems.Add(buyItem);
+            invenItems.Add(buyItem);
         }
 
         public void SubItem(Item sellItem, Player player)
@@ -99,14 +99,22 @@ namespace TextRPG
 
         public bool HasItemCheck(Item target)
         {
-            if (invenItems.Contains(target))
+            bool result = false;
+
+            for(int i = 0; i < invenItems.Count; i++)
             {
-                return true;
+                if (invenItems[i].Name == target.Name)
+                {
+                    result =  true;
+                    break;
+                }
+                else
+                {
+                    result = false;
+                }
             }
-            else
-            {
-               return false;
-            }
+
+            return result;
         }
     }
 }

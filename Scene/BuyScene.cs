@@ -70,12 +70,12 @@ namespace TextRPG
 
                 int index = int.Parse(choice);
 
-                if (choice == "0")
+                if (index == 0)
                 {
                     gm.ChangeScene(gm.ShopScene);
+                    break;
                 }
-
-                if (index > 0 && index <= sellList.Count)
+                else if (index > 0 && index <= sellList.Count)
                 {
                     Item selected = sellList[index - 1];
 
@@ -105,7 +105,7 @@ namespace TextRPG
                     Console.WriteLine();
                     Console.WriteLine("없는 선택이오. 다시 선택하시오.");
                 }
-            } while (choice != "0" && choice != "1");
+            } while (true);
         }
     }
 }
